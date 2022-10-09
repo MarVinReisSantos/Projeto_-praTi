@@ -1,82 +1,83 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Pessoa {
     private String nome;
+    private int cpf;
     private String telefone;
     private String dataDeNascimento;
     private String dataDeCadastroDaPessoa;
     private String dataDaUltimaAlteracao;
     
-    Pessoa(){
-
+    Pessoa(int cpf, String nome, String telefone, String dataDeNascimento){
+        this.cpf = cpf;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.dataDeNascimento = dataDeNascimento;
+        this.dataDeCadastroDaPessoa = dataAtual();
+        this.dataDaUltimaAlteracao = dataAtual();;
     }
 
-    /**
-     * @return String return the nome
-     */
+    //cpf
+    public int getCpf() {
+        return cpf;
+    }
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
+    //nome
     public String getNome() {
         return nome;
     }
-
-    /**
-     * @param nome the nome to set
-     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    /**
-     * @return String return the telefone
-     */
+    //Telefone
     public String getTelefone() {
         return telefone;
     }
-
-    /**
-     * @param telefone the telefone to set
-     */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    /**
-     * @return String return the dataDeNascimento
-     */
+    //DataDeNascimento
     public String getDataDeNascimento() {
         return dataDeNascimento;
     }
 
-    /**
-     * @param dataDeNascimento the dataDeNascimento to set
-     */
     public void setDataDeNascimento(String dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
 
-    /**
-     * @return String return the dataDeCadastroDaPessoa
-     */
+    //getDataDeCadastroDaPessoa
     public String getDataDeCadastroDaPessoa() {
         return dataDeCadastroDaPessoa;
     }
 
-    /**
-     * @param dataDeCadastroDaPessoa the dataDeCadastroDaPessoa to set
-     */
     public void setDataDeCadastroDaPessoa(String dataDeCadastroDaPessoa) {
         this.dataDeCadastroDaPessoa = dataDeCadastroDaPessoa;
     }
 
-    /**
-     * @return String return the dataDaUltimaAlteracao
-     */
+    //DataDaUltimaAlteracao
     public String getDataDaUltimaAlteracao() {
         return dataDaUltimaAlteracao;
     }
-
-    /**
-     * @param dataDaUltimaAlteracao the dataDaUltimaAlteracao to set
-     */
-    public void setDataDaUltimaAlteracao(String dataDaUltimaAlteracao) {
-        this.dataDaUltimaAlteracao = dataDaUltimaAlteracao;
+    public void setDataDaUltimaAlteracao() {
+        this.dataDaUltimaAlteracao = dataAtual();
     }
 
+    public String dataAtual(){
+        LocalDateTime dataComputador = LocalDateTime.now();
+        DateTimeFormatter meuFormatoObjeto = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return dataComputador.format(meuFormatoObjeto);
+    } 
+
+    @Override
+    public String toString() {
+        return ("Nome: " + this.nome + " - CPF: " + this.cpf + " - Telefone: " + this.telefone + 
+                " - Nascimento: " + this.dataDeNascimento + " - Data de Cadastro " + this.dataDeCadastroDaPessoa +
+                " - Data da Ultima Alteracao: " + this.dataDaUltimaAlteracao);
+    }
 }
