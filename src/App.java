@@ -10,10 +10,10 @@ public class App {
         List<Pessoa> listaPessoa = new ArrayList<Pessoa>();
         Scanner input = new Scanner(System.in);
         
-
-        listaPessoa.add(new Pessoa(listaPessoa.size(), "silvia", "3585 4767", "23/05/1998"));
-        listaPessoa.add(new Pessoa(listaPessoa.size(), "joao", "2540 8978", "13/02/1987"));
-        listaPessoa.add(new Aluno(listaPessoa.size(), "Vinicius", "3645 4455", "13/02/1987", 5.7));
+        //Pessoas cadastradas por padrão para facilitar os testes
+        listaPessoa.add(new Pessoa(listaPessoa.size(), "Silvia", "3585 4767", "23/05/1998"));
+        listaPessoa.add(new Pessoa(listaPessoa.size(), "Joao", "2540 8978", "13/02/1987"));
+        listaPessoa.add(new Aluno(listaPessoa.size(), "Vinicius", "3645 4455", "13/02/1987", 87.7));
         
 
         System.out.println("\n\t\tSeja Bem Vindo");
