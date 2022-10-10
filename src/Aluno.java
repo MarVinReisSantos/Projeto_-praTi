@@ -1,9 +1,15 @@
 public class Aluno extends Pessoa {
     private double notaFinalDoAluno;
     
-    Aluno(int _cpf, String _nome, String _telefone, String _dataDeNascimento, double notaFinalDoAluno){
+    Aluno(int _id, String _nome, String _telefone, String _dataDeNascimento, double notaFinalDoAluno){
         
-        super(_cpf, _nome, _telefone, _dataDeNascimento);
+        super(_id, _nome, _telefone, _dataDeNascimento);
+        this.notaFinalDoAluno = notaFinalDoAluno;
+    }
+
+    Aluno(int _id, String _nome, String _telefone, String _dataDeNascimento, double notaFinalDoAluno, String _dataDeCadastroDaPessoa){
+        
+        super(_id, _nome, _telefone, _dataDeNascimento, _dataDeCadastroDaPessoa);
         this.notaFinalDoAluno = notaFinalDoAluno;
     }
 
@@ -17,7 +23,7 @@ public class Aluno extends Pessoa {
 
     @Override
     public String toString() {
-        return ("Nome: " + getNome() + " - CPF: " + getCpf() + " - Telefone: " + getTelefone() + 
+        return ("id: " + getId() + " - Nome: " + getNome() + " - Telefone: " + getTelefone() + 
                 " - Nascimento: " + getDataDeNascimento() + " - Data de Cadastro " + getDataDeCadastroDaPessoa() +
                 " - Data da Ultima Alteracao: " + getDataDaUltimaAlteracao() + " - Nota Final do Aluno: " + this.notaFinalDoAluno);  
     }

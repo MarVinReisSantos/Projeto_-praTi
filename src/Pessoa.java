@@ -3,14 +3,14 @@ import java.time.format.DateTimeFormatter;
 
 public class Pessoa {
     private String nome;
-    private int cpf;
+    private int id;
     private String telefone;
     private String dataDeNascimento;
     private String dataDeCadastroDaPessoa;
     private String dataDaUltimaAlteracao;
     
-    Pessoa(int cpf, String nome, String telefone, String dataDeNascimento){
-        this.cpf = cpf;
+    Pessoa(int id, String nome, String telefone, String dataDeNascimento){
+        this.id = id;
         this.nome = nome;
         this.telefone = telefone;
         this.dataDeNascimento = dataDeNascimento;
@@ -18,12 +18,21 @@ public class Pessoa {
         this.dataDaUltimaAlteracao = dataAtual();;
     }
 
-    //cpf
-    public int getCpf() {
-        return cpf;
+    Pessoa(int id, String nome, String telefone, String dataDeNascimento, String dataDeCadastroDaPessoa){
+        this.id = id;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.dataDeNascimento = dataDeNascimento;
+        this.dataDeCadastroDaPessoa = dataDeCadastroDaPessoa;
+        this.dataDaUltimaAlteracao = dataAtual();;
     }
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
+
+    //cpf
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
     //nome
@@ -76,7 +85,7 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return ("Nome: " + this.nome + " - CPF: " + this.cpf + " - Telefone: " + this.telefone + 
+        return ("id: " + getId() +" - Nome: " + this.nome + " - Telefone: " + this.telefone + 
                 " - Nascimento: " + this.dataDeNascimento + " - Data de Cadastro " + this.dataDeCadastroDaPessoa +
                 " - Data da Ultima Alteracao: " + this.dataDaUltimaAlteracao);
     }
